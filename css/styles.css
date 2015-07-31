@@ -12,10 +12,28 @@ html, body, #map-canvas {
   margin-left: -180px;
   z-index: 5;
   padding: 5px;
+  border-left: solid 3px white;
+  border-right: solid 3px white;
+}
+
+#column {
+  display: inline;
+  height: 100%;
+  float: left;
+  width: 300px;
+  background-color: lightblue;
 }
 
 #control_panel {
   border-left: 2px solid white;
+}
+
+#littlearrow {
+  position: absolute;
+  right: 363px;
+  top: 45%;
+  max-height: 50px;
+  z-index: 10;
 }
 
 .button {
