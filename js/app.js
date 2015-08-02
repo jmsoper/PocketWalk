@@ -1,13 +1,43 @@
 
 $(document).ready(function(){
-  var arrowposition = $("#column").offset();
-  console.log(arrowposition);
-  var arrowwidth = $("#littlearrow").width()-5;
-  $("#littlearrow").css("left", (arrowposition.left-arrowwidth));
+//  var arrowposition = $("#column").offset();
+
+//  var arrowwidth = $("#littlearrow").width()-5;
+
 
       $('#littlearrow').click(function () {
-        $("#column").hide("slide", { direction: "right" }, 1200);
-        $("#column").delay(400).show("slide", { direction: "right" }, 1200);
-    });
+        $("#column").css("right", "-320px");
+        $("#littlearrow").css("right", "27px");
+//        $("#map-canvas").css("width", "97.5%");
+      });
+
+      $('body').on('click', '#littlearrow', function(){
+        var arrowposition = $("#littlearrow").css("right");
+        if(arrowposition == "27px"){
+                 $("#column").width(350);
+                 $("#column").css("right", "0");
+                 $("#littlearrow").css("right", "348px");
+        }else{
+          console.log("not a match.");
+          console.log(arrowposition);
+        }
+      });
+
+
+      $("#submitbutton").click(function(){
+        $(".selectbox, .label,.box, #incdirection").hide();
+        $("#returnbutton").css("visibility", "visible");
+        $("#directions_panel").show();
+        $("#littlearrow").show();
+      });
+
+      $("#returnbutton").click(function(){
+        $("#returnbutton").css("visibility", "hidden");
+        $("#directions_panel").hide();
+        $(".selectbox, .label, .box, #incdirection, #littlearrow").show();
+      })
+//        $("#column").hide("slide", { direction: "right" }, 1200);
+//        $("#column").delay(400).show("slide", { direction: "right" }, 1200);
+
 
 });

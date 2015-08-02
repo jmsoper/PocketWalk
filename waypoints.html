@@ -6,6 +6,7 @@
     <title>Waypoints in directions</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <script src="js/map.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="css/styles.css"/>
@@ -20,51 +21,53 @@
           <option value="TRANSIT">Transit</option>
         </select>
       </div>
-      <div id="map-canvas" style="float:left;width:70%;height:100%;"></div>
-    <section id="column">
-      <div id="control_panel" style="width:20%;float:left;text-align:left;padding-top:20px" class="panel">
-      <img src="images/littlearrow.png" id="littlearrow">
-      <div style="margin:20px;border-width:2px;" class="panel">
-      <b>Start:</b>
-      <div class="box">
-        <select id="start" class="selectbox">
-          <option value="4600 Hazel Avenue, Philadelphia, PA">4600 Hazel Avenue, Philadelphia, PA</option>
-          <option value="Boston, MA">Boston, MA</option>
-          <option value="New York, NY">New York, NY</option>
-          <option value="Miami, FL">Miami, FL</option>
-        </select>
-      </div>
-      <br>
-      <b>Waypoints:</b>
-      <br>
-      <i id="textbox">(Ctrl-Click for multiple selection)</i>
-      <br>
-      <div class="box">
-        <select multiple id="waypoints" class="selectbox">
-          <option value="1200 Callowhill Street, Philadelphia, PA 19107">1200 Callowhill Street, Philadelphia, PA 19107</option>
-          <option value="222 N 20th St, Philadelphia, PA 19103">222 N 20th St, Philadelphia, PA 19103</option>
-          <option value="2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130">2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130</option>
-          <option value="winnipeg, mb">Winnipeg</option>
-          <option value="fargo, nd">Fargo</option>
-          <option value="calgary, ab">Calgary</option>
-          <option value="spokane, wa">Spokane</option>
-        </select>
-      </div>
-      <br>
-      <b id="endlabel">End:</b>
-      <div class="box">
-        <select id="end" class="selectbox">
-          <option value="201 Chestnut Street, Philadelphia, PA">201 Chestnut Street, Philadelphia, PA</option>
-          <option value="Seattle, WA">Seattle, WA</option>
-          <option value="San Francisco, CA">San Francisco, CA</option>
-          <option value="Los Angeles, CA">Los Angeles, CA</option>
-        </select>
-      </div>
-      <br>
-        <input type="submit" class="button" onclick="calcRoute();">
-      </div>
-      <div id="directions_panel" class="panel"></div>
-      </div>
-    </section>
+      <div id="map-canvas" style="float:left;width:100%;height:100%;z-index:0;"></div>
+    <section id="column" style="z-index:10;">
+      <div id="control_panel" style="width:20%;float:left;text-align:left;padding-top:20px;z-index:9;" class="panel">
+      <img src="images/littlearrow.png" id="littlearrow" class="openpanel">
+      <div style="margin:20px;border-width:2px;" class="panel" id="incdirection">
+        <b class="label">Start:</b>
+          <div class="box">
+            <select id="start" class="selectbox">
+              <option value="4600 Hazel Avenue, Philadelphia, PA">4600 Hazel Avenue, Philadelphia, PA</option>
+              <option value="Boston, MA">Boston, MA</option>
+              <option value="New York, NY">New York, NY</option>
+              <option value="Miami, FL">Miami, FL</option>
+            </select>
+          </div>
+        <br>
+        <b class="label">Waypoints:</b>
+        <br>
+        <i id="textbox" class="label">(Ctrl-Click for multiple selection)</i>
+        <br>
+          <div class="box">
+            <select multiple id="waypoints" class="selectbox">
+              <option value="1200 Callowhill Street, Philadelphia, PA 19107">1200 Callowhill Street, Philadelphia, PA 19107</option>
+              <option value="222 N 20th St, Philadelphia, PA 19103">222 N 20th St, Philadelphia, PA 19103</option>
+              <option value="2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130">2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130</option>
+              <option value="winnipeg, mb">Winnipeg</option>
+              <option value="fargo, nd">Fargo</option>
+              <option value="calgary, ab">Calgary</option>
+              <option value="spokane, wa">Spokane</option>
+            </select>
+          </div>
+        <br>
+        <b class="label">End:</b>
+          <div class="box">
+            <select id="end" class="selectbox">
+              <option value="201 Chestnut Street, Philadelphia, PA">201 Chestnut Street, Philadelphia, PA</option>
+              <option value="Seattle, WA">Seattle, WA</option>
+              <option value="San Francisco, CA">San Francisco, CA</option>
+              <option value="Los Angeles, CA">Los Angeles, CA</option>
+            </select>
+          </div>
+        <br>
+          <div class="label button" id="submitbutton" onclick="calcRoute();"><p>see tour</p></div>
+    </div>
+    <img src="images/mapicon.png" class="mapicon">
+    <div id="directions_panel" class="panel"></div>
+    <div class="button" id="returnbutton"><p>reset tour</p></div>
+    </div>
+  </section>
   </body>
 </html>

@@ -142,7 +142,16 @@ if (status == google.maps.DirectionsStatus.OK) {
 }
 });
 }
+//div.gm-iw -- append button?
 
-
+//map-canvas
+  //->gm-style
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+//get route index? for numbering the icons
+//replace icons
+//set route styles
+//media query - set bar to horizontal for portrait cell phones, realign data fields
+//#8bd3c1;
+//'Lato', 'Helvetica Neue', Helvetica, sans-serif;
