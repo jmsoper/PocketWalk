@@ -31,8 +31,8 @@ html, body, #map-canvas {
   right: 0;
   width: 350px;
   background-color: rgba(168, 255, 233,.85);
-  border-left: solid 2px white;
   overflow-y: auto;
+  z-index: 6;
 }
 
 #mode {
@@ -40,7 +40,7 @@ html, body, #map-canvas {
   border: 2px solid white;
 }
 
-#column, #littlearrow {
+#column, #littlearrow, #downarrow {
     -webkit-transition-duration: 600ms;
     transition-duration: 600ms;
 }
@@ -61,7 +61,7 @@ html, body, #map-canvas {
   display: block;
 }
 #littlearrow {
-  position: fixed;
+  position: absolute;
   right: 348px;
   top: 45%;
   max-height: 50px;
@@ -159,5 +159,50 @@ body {
   background-color: white;
   margin-left: 35px;
   text-transform: none;
+
+}
+/*
+#downarrow {
+  visibility: visible;
+  position: absolute;
+  top: 650px;
+}*/
+
+@media (max-width: 480px){
+  #column {
+    top: 0;
+    width: 100% !important;
+    height: 85%;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;
+  }
+  #littlearrow{
+    visibility: hidden;
+  }
+  #control_panel {
+    margin-left: -10px;
+    margin-top: 0px;
+  }
+
+/*#downarrow {
+    visibility: visible !important;
+    position: absolute;
+    left: 45%;
+    max-height: 50px;
+    top: 500px;
+  }*/
+}
+
+@media (min-width: 480px){
+  .mapicon{
+    visibility: hidden;
+  }
+  #column{
+    height: 100% !important;
+    width: 350px !important;
+  }
+/*  #downarrow{
+    visibility: visible;
+  }*/
 
 }
