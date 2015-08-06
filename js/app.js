@@ -39,7 +39,7 @@ $(document).ready(function(){
 
       $('body').on('click', '.mapicon', function(){
         if ($("#column").css("top")=="-500px"){
-                 $("#column").height("85%");
+                 $("#column").height("92%");
                  $("#column").css("top", "0");
                }else{
                  $("#column").css("top", "-500px");
