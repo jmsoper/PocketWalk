@@ -63,9 +63,30 @@ $(document).ready(function(){
         $("#returnbutton").css("visibility", "hidden");
         $("#directions_panel").hide();
         $(".selectbox, .label, .box, #incdirection, #littlearrow").show();
-      })
+      });
 //        $("#column").hide("slide", { direction: "right" }, 1200);
 //        $("#column").delay(400).show("slide", { direction: "right" }, 1200);
+$("html").on("click", ".gm-style-iw", function(){
+//  console.log($(this).html());
 
+  console.log("click");
+  var windowinfo = $(this).html();
+  var firstthree = windowinfo.substring(150,153);
+  console.log(firstthree);
+  var threeid = firstthree.toString();
+
+//  var locationdoc = document.getElementById("'"+firstfour+"'");
+//  var locationinfo = $('"#' + '1901"').html();
+//  console.log(windowinfo)
+//  $("#directions_panel").html($(threeid).html(););
+  $("#directions_panel").html(threeid);
+  //var locationdoc = document.getElementById("'"+threeid+"'");
+  //var locationdoc = document.createElement(div"'"+threeid+"'");
+  console.log(locationdoc);
+//  $("#directions_panel").append(locationdoc.html());
+//  $("#directions_panel").append(locationinfo);
+//  $("#directions_panel").prepend($(this).html());
+
+});
 
 });

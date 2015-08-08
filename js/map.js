@@ -3,9 +3,14 @@
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
+var markerArray = [];
 
 function initialize() {
-directionsDisplay = new google.maps.DirectionsRenderer();
+var renderOptions = {
+    map: map,
+    suppressMarkers : true
+  };
+directionsDisplay = new google.maps.DirectionsRenderer(renderOptions);
 var chicago = new google.maps.LatLng(39.950593, -75.161783);
 var mapOptions = {
 zoom: 11,
@@ -49,6 +54,7 @@ var options = {
 map: map,
 position: new google.maps.LatLng(60, 105),
 content: content
+
 };
 
 var infowindow = new google.maps.InfoWindow(options);
@@ -56,7 +62,7 @@ map.setCenter(options.position);
 
 var philly = new google.maps.LatLng(39.950593, -75.161783);
 var mapOptions = {
-zoom: 11,
+zoom: 13,
 center: philly
 }
 var styleArray = [
@@ -128,12 +134,15 @@ var request = {
 directionsService.route(request, function(response, status) {
 if (status == google.maps.DirectionsStatus.OK) {
   directionsDisplay.setDirections(response);
+  showSteps(response);
+  console.log(response);
   var route = response.routes[0];
   var summaryPanel = document.getElementById('directions_panel');
   summaryPanel.innerHTML = '';
   // For each route, display summary information.
   for (var i = 0; i < route.legs.length; i++) {
     var routeSegment = i + 1;
+    console.log(route.legs[i].start_location);
     summaryPanel.innerHTML += '<b>' + checkboxArray[i].id + '</b><br>-------------------------------------------<br>';
 //    summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
     summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
@@ -142,9 +151,39 @@ if (status == google.maps.DirectionsStatus.OK) {
   }
 }
 });
+
+  function showSteps(directionResult) {
+    // For each step, place a marker, and add the text to the marker's
+    // info window. Also attach the marker to an array so we
+    // can keep track of it and remove it when calculating new
+    // routes.
+    var myRoute = directionResult.routes[0].legs[0];
+
+    for (var i = 0; i < myRoute.steps.length; i++) {
+      var icon = "images/waypoint.png";
+      if (i == 0) {
+        icon = "images/bookend.png";
+      }
+      var marker = new google.maps.Marker({
+        position: myRoute.steps[i].start_point,
+        map: map,
+        icon: icon
+      });
+      //attachInstructionText(marker, myRoute.steps[i].instructions);
+      markerArray.push(marker);
+    }
+    var marker = new google.maps.Marker({
+      position: myRoute.steps[i - 1].end_point,
+      map: map,
+      icon: "images/bookend.png"
+    });
+    markerArray.push(marker);
+
+    google.maps.event.trigger(markerArray[0], "click");
+  }
+
 }
 //div.gm-iw -- append button?
-
 //map-canvas
   //->gm-style
 
