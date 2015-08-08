@@ -158,23 +158,26 @@ if (status == google.maps.DirectionsStatus.OK) {
     // info window. Also attach the marker to an array so we
     // can keep track of it and remove it when calculating new
     // routes.
-    var myRoute = directionResult.routes[0].legs[0];
+//    console.log(directionResult.routes[0].legs.length);
+//    console.log(directionResult.routes[0].legs[0].start_address);
+    var myRoute = directionResult.routes[0];
 
-    for (var i = 0; i < myRoute.steps.length; i++) {
+    for (var i = 0; i < myRoute.legs.length; i++) {
       var icon = "images/waypoint.png";
+      console.log(myRoute.legs[i].start_location);
       if (i == 0) {
         icon = "images/bookend.png";
       }
       var marker = new google.maps.Marker({
-        position: myRoute.steps[i].start_point,
+        position: myRoute.legs[i].start_location,
         map: map,
         icon: icon
       });
-      attachInstructionText(marker, myRoute.steps[i].instructions);
+      attachInstructionText(marker, myRoute.legs[i].start_address);
       markerArray.push(marker);
     }
     var marker = new google.maps.Marker({
-      position: myRoute.steps[i - 1].end_point,
+      position: myRoute.legs[i - 1].end_location,
       map: map,
       icon: "images/bookend.png"
     });
