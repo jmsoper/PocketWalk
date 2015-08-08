@@ -4,6 +4,7 @@ var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 var markerArray = [];
+var stepDisplay;
 
 function initialize() {
 var renderOptions = {
@@ -104,7 +105,7 @@ map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 map.setOptions({styles: styleArray});
 
 //Try HTML5 geolocation end
-
+stepDisplay = new google.maps.InfoWindow();
 directionsDisplay.setMap(map);
 }
 
@@ -169,7 +170,7 @@ if (status == google.maps.DirectionsStatus.OK) {
         map: map,
         icon: icon
       });
-      //attachInstructionText(marker, myRoute.steps[i].instructions);
+      attachInstructionText(marker, myRoute.steps[i].instructions);
       markerArray.push(marker);
     }
     var marker = new google.maps.Marker({
@@ -183,6 +184,15 @@ if (status == google.maps.DirectionsStatus.OK) {
   }
 
 }
+
+  function attachInstructionText(marker, text) {
+    google.maps.event.addListener(marker, 'click', function() {
+      // Open an info window when the marker is clicked on,
+      // containing the text of the step.
+      stepDisplay.setContent(text);
+      stepDisplay.open(map, marker);
+    });
+  }
 //div.gm-iw -- append button?
 //map-canvas
   //->gm-style
