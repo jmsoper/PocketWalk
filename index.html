@@ -12,6 +12,16 @@
     <link rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
+    <div id="modal">
+      <div class="modalbox">
+        <h1>PocketWalk</h1>
+        <p>PocketWalk is a flexible walking tour app.</p>
+        <p>Pick one of the displayed tours, or make your own from a combination of the listed locations to learn about the history of education in Philadelphia</p>
+        <p class="github">see the repo</p>
+        <p> Click the '?' mark at any point to return to this page.</p>
+        <p class="closebutton">close</p>
+      </div>
+    </div>
     	<div id="panel">
         <b>Mode of Travel: </b>
         <select id="mode" onchange="calcRoute();">
@@ -60,18 +70,20 @@
         <b class="label">End:</b>
           <div class="box">
             <select id="end" class="selectbox">
-<option value="1700 W Olney Avenue, Philadelphia, PA 19141" id="Central High School">Central High School</option>
-<option value="1400 W Olney Avenue, Philadelphia, PA 19141" id="Philadelphia High School for Girls">Philadelphia High School for Girls</option>
-<option value="230 N. 21st St, Philadelphia, PA 19103" id="Former Central Office, School District of Philadelphia">Former Central Office, Phila School District</option>
-<option value="440 N. Broad St, Philadelphia, PA 19130" id="School District of Philadelphia Education Center">School District of Phila. Edu. Ctr</option>
-<option value="1901 S. 9th St, Philadelphia, PA 19148" id="Bok Technical High School">Bok Technical High School</option>
-<option value="1599 Wharton St, Philadelphia, PA 19146" id="Barratt Middle School, 1599 Wharton St.">Barratt Middle School</option>
-<option value="2101 S College Ave, Philadelphia, PA 19121" id="Girard College, 2101 S College Ave">Girard College</option>
+              <option value="1700 W Olney Avenue, Philadelphia, PA 19141" id="Central High School">Central High School</option>
+              <option value="1400 W Olney Avenue, Philadelphia, PA 19141" id="Philadelphia High School for Girls">Philadelphia High School for Girls</option>
+              <option value="230 N. 21st St, Philadelphia, PA 19103" id="Former Central Office, School District of Philadelphia">Former Central Office, Phila School District</option>
+              <option value="440 N. Broad St, Philadelphia, PA 19130" id="School District of Philadelphia Education Center">School District of Phila. Edu. Ctr</option>
+              <option value="1901 S. 9th St, Philadelphia, PA 19148" id="Bok Technical High School">Bok Technical High School</option>
+              <option value="1599 Wharton St, Philadelphia, PA 19146" id="Barratt Middle School, 1599 Wharton St.">Barratt Middle School</option>
+              <option value="2101 S College Ave, Philadelphia, PA 19121" id="Girard College, 2101 S College Ave">Girard College</option>
             </select>
           </div>
         <br>
           <div class="label button" id="submitbutton" onclick="calcRoute();"><p>see tour</p></div>
+          <p class="help">?</p>
     </div>
+
     <img src="images/mapicon.png" class="mapicon">
     <div id="directions_panel" class="panel"></div>
     <div class="button" id="returnbutton"><p>reset tour</p></div>
@@ -80,7 +92,7 @@
   </body>
   <div class="array" id="170"></div>
   <script>
-  $l.ajax({
+  $q.ajax({
     type: 'GET',
     url: "http://api.openweathermap.org/data/2.5/weather?q=Philadelphia,usa&appid=bcb83c4b54aee8418983c2aff3073b3b",
     success: function(data) {
@@ -88,7 +100,6 @@
       var weatherDiv = document.getElementById("weather");
       var weatherDesc = "The weather: " + data.weather[0].description + ". It is " + Math.floor((data.main.temp * 9/5 - 459.67)) + " degrees outside."
       weatherDiv.innerHTML = weatherDesc;
-      console.log(data);
     },
     error: function() {
       console.error("An error occured.");

@@ -16,18 +16,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       });
 
+      var closeButton = document.getElementsByClassName("closebutton")[0];
+      var modal = document.getElementById("modal");
+      var help = document.getElementsByClassName("help")[0];
+
+      help.addEventListener("click", function() {
+        modal.classList.toggle("closed");
+      });
+
+      closeButton.addEventListener("click", function() {
+        modal.classList.toggle("closed");
+      });
+
       var viewportsize = window.innerWidth;
       // Returns width of browser viewport
 
       if(viewportsize >= 500){
-        console.log("big viewport.");
       }
 
       $q('.mapicon').click(function(){
         if($q("#column").width("100%")){
               var arrowposition = $q(".mapicon").css("top");
               $q("#column").css("top", "-500px");
-              console.log(arrowposition);}
+}
       });
 
       $q('body').on('click', '.mapicon', function(){
