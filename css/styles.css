@@ -92,12 +92,24 @@ background-color: darkturquoise;
 
 }
 
+.weather-icon {
+  background-image: url("../images/weather.png");
+  height: 85px;
+  width: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: left;
+  margin-top: -10px;
+  margin-left: -20px;
+  margin-right: 10px;
+}
+
 #weather {
   color: dimgray;
   text-transform: none;
   line-height: 20px;
   width: 250px;
-  background-color: rgba(255,255,255, .4);
+  /*background-color: rgba(255,255,255, .4);*/
   padding: 5px;
   margin-top: -30px;
 }
