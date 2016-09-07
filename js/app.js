@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       var threeid = firstthree.toString();
 
       $q("#directions_panel").html(threeid);
-
+      console.log("clicked the " + threeid + " flag.");
 
     });
 
