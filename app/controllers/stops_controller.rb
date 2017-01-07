@@ -30,6 +30,7 @@ class StopsController < ApplicationController
       if @stop.save
         format.html { redirect_to @stop, notice: 'Stop was successfully created.' }
         format.json { render :show, status: :created, location: @stop }
+        render show_tour_url(@stop.tour_id)
       else
         format.html { render :new }
         format.json { render json: @stop.errors, status: :unprocessable_entity }

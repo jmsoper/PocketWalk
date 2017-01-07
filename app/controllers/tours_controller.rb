@@ -11,6 +11,9 @@ class ToursController < ApplicationController
   # GET /tours/1
   # GET /tours/1.json
   def show
+    @tour = Tour.find(params[:id])
+    @stops = Stop.where(tour_id: @tour.id)
+    @stop = Stop.new
   end
 
   # GET /tours/new
@@ -60,6 +63,11 @@ class ToursController < ApplicationController
       format.html { redirect_to tours_url, notice: 'Tour was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def show_stops
+    @tour = Tour.find(params[:tour_params])
+    @stops = Stop.where(tour_id: @tour.id)
   end
 
   private

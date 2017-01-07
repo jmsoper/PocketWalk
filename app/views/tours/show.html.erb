@@ -12,9 +12,64 @@
 
 <p>
   <strong>User:</strong>
-  <%= link_to user_path(@tour.user_id) %>
+  <%= link_to @tour.user.email, user_path(@tour.user.email) %>
 </p>
+<ul>
+  <%= @stops.each do |stop|%>
+    <li><%= link_to stop.name, stops_path(stop.id) %></li>
+  <% end %>
+</ul>
 
-<%= link_to 'Add a stop', new_stop_path(@tour) %>
+<%= link_to 'Add a new stop', new_stop_path %>
+<h1>New Stop</h1>
+<%= form_for(@stop) do |f| %>
+  <% if @stop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stop.errors.count, "error") %> prohibited this stop from being saved:</h2>
+
+      <ul>
+      <% @stop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :tour_id, :value => @tour.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %>
+    <%= f.number_field :latitude, :class => 'text_field', :step => 0.6 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitude %>
+    <%= f.number_field :longitude, :class => 'text_field', :step => 0.6 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', stops_path %>
+
 <%= link_to 'Edit', edit_tour_path(@tour) %> |
 <%= link_to 'Back', tours_path %>

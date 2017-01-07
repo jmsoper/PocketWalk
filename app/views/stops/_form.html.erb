@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :tour_id %>
-    <%= f.text_field :tour_id, :value => @tour.tour_id %>
+    <%= f.text_field :tour_id, :value => @tour.id %>
   </div>
 
   <div class="field">
     <%= f.label :latitude %>
-    <%= f.number_field :latitude, :class => 'text_field', :step => 0.6 %>
+    <%= f.number_field :latitude, :class => 'text_field', :step => 0.00001 %>
   </div>
 
   <div class="field">
     <%= f.label :longitude %>
-    <%= f.number_field :longitude, :class => 'text_field', :step => 0.6 %>
+    <%= f.number_field :longitude, :class => 'text_field', :step => 0.00001 %>
   </div>
 
   <div class="field">
