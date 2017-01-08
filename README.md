@@ -37,6 +37,7 @@ COMING SOON
 * [ ] Connect AWS for image uploads
 * [ ] Add autocomplete for Search
 * [ ] Add "highlight" design for local tour index
+* [ ] Test coverage
 
 [welcome]: app/assets/images/welcome.png
 [landingPage]: app/assets/images/landing.png
