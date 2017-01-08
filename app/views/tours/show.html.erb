@@ -16,7 +16,7 @@
 </p>
 <ul>
   <%= @stops.each do |stop|%>
-    <li><%= link_to stop.name, stops_path(stop.id) %></li>
+    <%= render stop %>
   <% end %>
 </ul>
 
