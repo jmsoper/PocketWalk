@@ -35,6 +35,8 @@ COMING SOON
 * [ ] Set up "treasure-hunt" mode, where information only pops up when user's geolocation matches destination
 * [ ] Fix location information display
 * [ ] Connect AWS for image uploads
+* [ ] Add autocomplete for Search
+* [ ] Add "highlight" design for local tour index
 
 [welcome]: app/assets/images/welcome.png
 [landingPage]: app/assets/images/landing.png
