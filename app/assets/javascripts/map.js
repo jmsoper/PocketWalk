@@ -1,5 +1,4 @@
-
-
+$(document).ready(function(){
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
@@ -208,3 +207,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
 //media query - set bar to horizontal for portrait cell phones, realign data fields
 //#8bd3c1;
 //'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+});
