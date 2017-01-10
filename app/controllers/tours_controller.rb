@@ -13,7 +13,7 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @stops = @tour.stops
-    @location_hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
+    @tour_stops_location_hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
       marker.lat stop.latitude
       marker.lng stop.longitude
       marker.title stop.name
