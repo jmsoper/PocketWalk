@@ -6,6 +6,11 @@ class ToursController < ApplicationController
   # GET /tours.json
   def index
     @tours = Tour.all
+    @hash = Gmaps4rails.build_markers(@tours) do |tour, marker|
+      marker.lat tour.latitude
+      marker.lng tour.longitude
+      marker.title tour.name
+    end
   end
 
   # GET /tours/1
@@ -13,11 +18,20 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @stops = @tour.stops
-    @tour_stops_location_hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
-      marker.lat stop.latitude
-      marker.lng stop.longitude
-      marker.title stop.name
+    if @stops.length > 0
+      @hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
+        marker.lat stop.latitude
+        marker.lng stop.longitude
+        marker.title stop.name
+      end
+    else
+      @hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+        marker.lat tour.latitude
+        marker.lng tour.longitude
+        marker.title tour.name
+      end
     end
+
   end
 
   # GET /tours/new
@@ -83,6 +97,6 @@ class ToursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:name, :description, :latitude, :longitude, :user_id)
+      params.require(:tour).permit(:name, :description, :location, :latitude, :longitude, :user_id)
     end
 end

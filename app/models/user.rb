@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   geocoded_by :location   # can also be an IP address
-  after_validation :geocode          # auto-fetch coordinates
+  after_validation :geocode        # auto-fetch coordinates
   has_many :tours
 
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, uniqueness: true
+  validates :username, uniqueness: true
+
 end

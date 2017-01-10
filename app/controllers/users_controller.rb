@@ -6,10 +6,12 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    @user_location_hash = Gmaps4rails.build_markers(@users) do |user, marker|
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      user_path = view_context.link_to user.username, user_path(user)
       marker.lat user.latitude
       marker.lng user.longitude
       marker.title user.username
+      marker.infowindow "<b>#{user_path}, <br> #{user.location}</b>"
     end
   end
 
@@ -17,6 +19,14 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @tours = @user.tours
+    @hash = Gmaps4rails.build_markers(@user) do |user, marker|
+      user_path = view_context.link_to user.username, user_path(user)
+      marker.lat user.latitude
+      marker.lng user.longitude
+      marker.title user.username
+      marker.infowindow "<b>#{user_path}, <br> #{user.location}</b>"
+    end
   end
 
   # GET /users/new

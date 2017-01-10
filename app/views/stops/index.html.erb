@@ -6,8 +6,7 @@
   <thead>
     <tr>
       <th>Tour</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
+      <th>Location</th>
       <th>Name</th>
       <th>Description</th>
       <th>Image</th>
@@ -19,8 +18,7 @@
     <% @stops.each do |stop| %>
       <tr>
         <td><%= stop.tour %></td>
-        <td><%= stop.latitude %></td>
-        <td><%= stop.longitude %></td>
+        <td><%= stop.full_street_address %></td>
         <td><%= stop.name %></td>
         <td><%= stop.description %></td>
         <td><%= stop.image %></td>

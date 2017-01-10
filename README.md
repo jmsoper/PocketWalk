@@ -27,6 +27,9 @@ Design features:
 * [ ] Reset signin configuration to accept username + password instead of email + password
 * [x] Allow users to create and save their own tours
 * [x] Create tours and add stops to tours
+* [x] Display users on map when showing multiple or individual users
+* [x] Display a user's tours on map when showing user
+* [x] Display tour location on map if there are no stops
 * [ ] Display a tour and its stops on the map when that tour is selected
 * [ ] Make users and tour descriptions searchable
 * [ ] Add autocomplete for Search

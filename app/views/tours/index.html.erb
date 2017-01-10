@@ -16,10 +16,9 @@
     <% @tours.each do |tour| %>
       <tr>
         <td><%= link_to tour.name, tour_path(tour.id) %></td>
+        <td><%= tour.location %></td>
         <td><%= tour.description %></td>
-        <td><%= link_to tour.user.username, tour.user %></td>
         <% if current_user && tour.user_id === current_user.id %>
-          <td><%= link_to 'Show', tour %></td>
           <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
           <td><%= link_to 'Destroy', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

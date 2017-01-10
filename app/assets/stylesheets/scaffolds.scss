@@ -38,6 +38,23 @@ a {
   }
 }
 
+.gm-style-iw {
+  color: #666;
+
+  a {
+    color: #666;
+
+    &:visited {
+      color: #666;
+    }
+
+    &:hover {
+      color: turquoise;
+      // background-color: white;
+    }
+  }
+}
+
 th {
   padding-bottom: 5px;
 }
