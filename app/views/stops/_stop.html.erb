@@ -1,4 +1,8 @@
 <div class="tour-stop">
-  <li class="name"><%= stop.name %></li>
+  <li class="name"><%= link_to stop.name, stop %></li>
   <li class="description"><%= stop.description %></li>
+  <% if stop.tour.user_id == current_user.id %>
+    <%= link_to "edit", edit_stop_path(stop) %>
+    <%= link_to "delete", stop, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>

@@ -21,6 +21,7 @@ Design features:
 ![landingPage]
 
 ###UNDER CONSTRUCTION
+* [ ] Remove jQuickly and replace with vanilla js
 * [ ] Test coverage
 * [x] Implement sorcery auth to allow users to signup and signin
 * [ ] Add in mailer to reset password

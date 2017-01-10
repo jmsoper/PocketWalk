@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       });
 
-      var closeButton = document.getElementsByClassName("closebutton")[0];
+      // var closeButton = document.getElementsByClassName("closebutton")[0];
       var modal = document.getElementById("modal");
       var help = document.getElementsByClassName("help")[0];
 
