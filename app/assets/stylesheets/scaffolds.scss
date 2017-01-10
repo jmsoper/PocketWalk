@@ -1,10 +1,15 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #eee;
+  color: white;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+}
+
+textarea {
+  height: 100px;
+  width: 250px;
 }
 
 p, ol, ul, td {
@@ -21,15 +26,15 @@ pre {
 }
 
 a {
-  color: #000;
+  color: white;
 
   &:visited {
-    color: #666;
+    color: white;
   }
 
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: turquoise;
+    // background-color: white;
   }
 }
 
@@ -50,7 +55,7 @@ div {
 }
 
 #notice {
-  color: green;
+  color: turquoise;
 }
 
 .field_with_errors {

@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       $q('#littlearrow').click(function () {
         var arrowposition = $q("#littlearrow").css("right");
         if(arrowposition == "right:26px"){
-                 $q("#column").width("350");
+                 $q("#column").width("450");
                  $q("#column").css("right", "0");
-                 $q("#littlearrow").css("right", "348px");
+                 $q("#littlearrow").css("right", "450px");
         }else{
-          $q("#column").css("right", "-320px");
+          $q("#column").css("right", "-424px");
           $q("#littlearrow").css("right", "26px");
         }
 

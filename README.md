@@ -24,9 +24,13 @@ Design features:
 COMING SOON
 
 ###UNDER CONSTRUCTION
+* [ ] Test coverage
 * [x] Implement sorcery auth to allow users to signup and signin
 * [x] Allow users to create and save their own tours
+* [x] Create tours and add stops to tours
 * [ ] Make users and tour descriptions searchable
+* [ ] Add autocomplete for Search
+* [ ] Connect AWS for image uploads
 * [ ] Photo uploads for users and tour stops
 * [ ] Allow users to save favorite tours
 * [ ] Allow users to follow other users
@@ -34,10 +38,7 @@ COMING SOON
 * [ ] Set geolocation to user location -- provide searchable list of cities with tours
 * [ ] Set up "treasure-hunt" mode, where information only pops up when user's geolocation matches destination
 * [ ] Fix location information display
-* [ ] Connect AWS for image uploads
-* [ ] Add autocomplete for Search
 * [ ] Add "highlight" design for local tour index
-* [ ] Test coverage
 
 [welcome]: app/assets/images/welcome.png
 [landingPage]: app/assets/images/landing.png

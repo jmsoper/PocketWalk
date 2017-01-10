@@ -1,6 +1,52 @@
 <h1>Editing Tour</h1>
 
 <%= render 'form', tour: @tour %>
+<h4> STOPS </h4>
+<% if @tour.stops.length > 0 %>
+  <ul>
+    <% @tour.stops.each do |stop|%>
+      <%= render stop %>
+    <% end %>
+  </ul>
+<% else %>
+  <p> It looks like this tour doesn't have any stops yet. </p>
+<% end %>
+<%= form_for(@stop) do |f| %>
+  <% if @stop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stop.errors.count, "error") %> prohibited this stop from being saved:</h2>
+
+      <ul>
+      <% @stop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :tour_id, :value => @tour.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @tour %> |
 <%= link_to 'Back', tours_path %>

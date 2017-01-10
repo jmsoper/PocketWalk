@@ -30,8 +30,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        login(user_params[:email], user_params[:password])
         format.html { redirect_to(:users, notice: 'User was successfully created.') }
         format.json { render :show, status: :created, location: @user }
+          # redirect_back_or_to(:tours, notice: 'Login successful')
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -71,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :username, :password, :location, :password_confirmation)
     end
 end

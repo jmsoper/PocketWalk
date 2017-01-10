@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to tour.name, tour_path(tour.id) %></td>
         <td><%= tour.description %></td>
-        <td><%= tour.user_id %></td>
+        <td><%= link_to tour.user.username, tour.user %></td>
         <% if current_user && tour.user_id === current_user.id %>
           <td><%= link_to 'Show', tour %></td>
           <td><%= link_to 'Edit', edit_tour_path(tour) %></td>

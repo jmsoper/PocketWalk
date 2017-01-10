@@ -1,9 +1,32 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
 <p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%= @user.location %>
+</p>
+<p>
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+<h4>User's tours</h4>
+<ul>
+  <% if @user.tours.length > 0 %>
+    <% @user.tours.each do |tour|%>
+      <%= render tour %>
+    <% end %>
+  <% else %>
+    <% if @user.id === current_user.id %>
+      <p> It looks like you don't have any tours yet. Would you like to add some?</p>
+      <%= link_to "add a tour", new_tour_path %>
+    <% else %>
+      <p> It looks like <%=@user.username%> doesn't have any tours yet. </p>
+    <% end %>
+  <% end %>
+</ul>
 <% if @user.id === current_user.id %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>

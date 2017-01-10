@@ -15,6 +15,8 @@ class StopsController < ApplicationController
   # GET /stops/new
   def new
     @stop = Stop.new
+    @tour = Tour.find(params[:id]);
+    render @tour
   end
 
   # GET /stops/1/edit
@@ -28,9 +30,10 @@ class StopsController < ApplicationController
 
     respond_to do |format|
       if @stop.save
-        format.html { redirect_to @stop, notice: 'Stop was successfully created.' }
+        format.html { redirect_to @stop.tour, notice: 'Stop was successfully created.' }
         format.json { render :show, status: :created, location: @stop }
-        render show_tour_url(@stop.tour_id)
+        # @tour = Tour.find(params[:tour_id])
+        # render tour_path(@stop.tour.id)
       else
         format.html { render :new }
         format.json { render json: @stop.errors, status: :unprocessable_entity }
