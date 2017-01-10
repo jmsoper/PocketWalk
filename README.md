@@ -12,7 +12,7 @@ Design features:
 
 - User auth allows user to sign in and create tours
 - Responsive design allows user to access app on multiple devices
-- Uses unique markers for consistent visuals
+- Users can see their own location, and nearby tours, in real-time
 
 ###Welcome View
 ![welcome]
@@ -20,14 +20,14 @@ Design features:
 ###Landing Page
 ![landingPage]
 
-###Technical Details
-COMING SOON
-
 ###UNDER CONSTRUCTION
 * [ ] Test coverage
 * [x] Implement sorcery auth to allow users to signup and signin
+* [ ] Add in mailer to reset password
+* [ ] Reset signin configuration to accept username + password instead of email + password
 * [x] Allow users to create and save their own tours
 * [x] Create tours and add stops to tours
+* [ ] Display a tour and its stops on the map when that tour is selected
 * [ ] Make users and tour descriptions searchable
 * [ ] Add autocomplete for Search
 * [ ] Connect AWS for image uploads
@@ -36,6 +36,7 @@ COMING SOON
 * [ ] Allow users to follow other users
 * [ ] Set up home page with infinite scroll of updates from followed users
 * [ ] Set geolocation to user location -- provide searchable list of cities with tours
+* [ ] Automatically index and display nearby tours on login
 * [ ] Set up "treasure-hunt" mode, where information only pops up when user's geolocation matches destination
 * [ ] Fix location information display
 * [ ] Add "highlight" design for local tour index
