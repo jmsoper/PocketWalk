@@ -22,6 +22,7 @@ Design features:
 
 ###UNDER CONSTRUCTION
 * [ ] Remove jQuickly and replace with vanilla js
+* [ ] Remove gmaps4rails gem, replace with vanilla js
 * [ ] Test coverage
 * [x] Implement sorcery auth to allow users to signup and signin
 * [ ] Add in mailer to reset password

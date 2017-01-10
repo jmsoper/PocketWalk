@@ -7,9 +7,11 @@ class ToursController < ApplicationController
   def index
     @tours = Tour.all
     @hash = Gmaps4rails.build_markers(@tours) do |tour, marker|
+      tour_path = view_context.link_to tour.name, tour_path(tour)
       marker.lat tour.latitude
       marker.lng tour.longitude
       marker.title tour.name
+      marker.infowindow "<b>#{tour_path}, <br> #{tour.location}</b>"
     end
   end
 
@@ -20,15 +22,19 @@ class ToursController < ApplicationController
     @stops = @tour.stops
     if @stops.length > 0
       @hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
+        stop_path = view_context.link_to stop.name, stop_path(stop)
         marker.lat stop.latitude
         marker.lng stop.longitude
         marker.title stop.name
+        marker.infowindow "<b>#{stop_path}, <br> #{stop.description}</b>"
       end
     else
       @hash = Gmaps4rails.build_markers(@tour) do |tour, marker|
+        tour_path = view_context.link_to tour.name, tour_path(tour)
         marker.lat tour.latitude
         marker.lng tour.longitude
         marker.title tour.name
+        marker.infowindow "<b>#{tour_path}, <br> #{tour.location}</b>"
       end
     end
 

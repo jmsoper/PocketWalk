@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
       });
 
-      // var closeButton = document.getElementsByClassName("closebutton")[0];
       var modal = document.getElementById("modal");
       var help = document.getElementsByClassName("help")[0];
 
@@ -24,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
         modal.classList.toggle("closed");
       });
 
-      closeButton.addEventListener("click", function() {
-        modal.classList.toggle("closed");
-      });
+      // closeButton.addEventListener("click", function() {
+      //   modal.classList.toggle("closed");
+      // });
 
       var viewportsize = window.innerWidth;
       // Returns width of browser viewport
