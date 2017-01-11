@@ -6,7 +6,7 @@ PocketWalk is a web application that maps out Philly history, explorable as a re
 
 [See it live][heroku]
 
-[heroku]: http://pocketwalk.com
+[heroku]: http://jmsoper.github.io/PocketWalk/
 
 Design features:
 
